@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Adjuster</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f0f0f0;
+        }
+        .adjustment-section {
+            margin: 15px auto;
+        }
+        .color-display {
+            width: 160px;
+            height: 160px;
+            margin: 30px auto;
+            border: 2px solid #333;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>RGB Adjuster</h1>
+    <div class="adjustment-section">
+        <label>R: <span id="rValue">0</span></label>
+        <input type="range" id="rSlider" min="0" max="255" value="0" oninput="adjustColor()">
+    </div>
+    <div class="adjustment-section">
+        <label>G: <span id="gValue">0</span></label>
+        <input type="range" id="gSlider" min="0" max="255" value="0" oninput="adjustColor()">
+    </div>
+    <div class="adjustment-section">
+        <label>B: <span id="bValue">0</span></label>
+        <input type="range" id="bSlider" min="0" max="255" value="0" oninput="adjustColor()">
+    </div>
+    <div id="colorPreview" class="color-display"></div>
+
+    <script>
+        function adjustColor() {
+            const red = document.getElementById('rSlider').value;
+            const green = document.getElementById('gSlider').value;
+            const blue = document.getElementById('bSlider').value;
+
+            document.getElementById('rValue').innerText = red;
+            document.getElementById('gValue').innerText = green;
+            document.getElementById('bValue').innerText = blue;
+
+            document.getElementById('colorPreview').style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+    </script>
+</body>
+</html>
